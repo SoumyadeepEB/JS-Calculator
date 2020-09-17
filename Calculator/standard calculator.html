@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Calculator</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/w3.css">
+</head> 
+<body>
+    <marquee class="w3-text-red" direction="left"><h1>This is a General and Scientific Purpose Calculator Using HTML CSS & JavaScript</h1></marquee>
+<div class="w3-container w3-display-middle w3-center w3-padding-large w3-light-gray w3-round-large w3-card-4" style="border: ridge 5px gray;">
+
+    <div>
+        <form name="sci">
+        <input type="button" id="b" class="w3-btn w3-small w3-center w3-purple w3-padding-small w3-round-xxlarge" onclick="mode()" value="SCI">
+		<input type="text" name="display" id="select" style="height: 50px; width: auto; font-size: 10px;" class="w3-input w3-margin-top w3-border w3-large w3-padding w3-border w3-border-black w3-round-large" readonly>
+        <table cellspacing="20">
+        <tr>
+            <td><input type="button" class="w3-button w3-red w3-round" value="C" title="Clear" onclick="clr()"></td>
+            <td><input type="button" id="b2" class="w3-button w3-gray w3-round" value="(" onclick="calc('(')"></td>
+            <td><input type="button" id="b1" class="w3-button w3-gray w3-round" value=")" onclick="calc(')')"></td>
+            <td><input type="button" value="D" title="Backspace" class="w3-button w3-black w3-round" onclick="back()"></td>  
+        </tr>
+        </table>
+
+        <div id="s">
+        <table cellspacing="18">
+		<tr> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="1" onclick="calc('1')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="2" onclick="calc('2')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="3" onclick="calc('3')"></td> 
+			<td><input type="button" class="w3-button w3-orange w3-round" value="/" onclick="calc('/')"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="4" onclick="calc('4')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="5" onclick="calc('5')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="6" onclick="calc('6')"></td> 
+			<td><input type="button" class="w3-button w3-orange w3-round" value="-" onclick="calc('-')"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="7" onclick="calc('7')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="8" onclick="calc('8')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="9" onclick="calc('9')"></td> 
+			<td><input type="button" class="w3-button w3-orange w3-round" value="+" onclick="calc('+')"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" class="w3-button w3-cyan w3-round" value="." onclick="calc('.')"></td> 
+			<td><input type="button" class="w3-button w3-gray w3-round" value="0" onclick="calc('0')"></td> 
+			<td><input type="button" class="w3-button w3-green w3-round" value="=" onclick="sol()"></td> 
+			<td><input type="button" class="w3-button w3-orange w3-round" value="*" onclick="calc('*')"></td> 
+		</tr> 
+    </table>
+    </div>
+
+    <div id="h" style="display: none;">
+    <table cellspacing="5">
+		<tr>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="sin" onclick="sci.display.value='Math.sin((Math.PI/180)*'"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="cos" onclick="sci.display.value='Math.cos((Math.PI/180)*'"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="tan" onclick="sci.display.value='Math.tan((Math.PI/180)*'"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-blue w3-round w3-padding-small" value="log" onclick="calc('Math.log10(')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="w3-button w3-small w3-border w3-pale-yellow w3-round" value="asin" onclick="sci.display.value='Math.asin('"></td>
+			<td><input type="button" class="w3-button w3-small w3-border w3-pale-yellow w3-round" value="acos" onclick="sci.display.value='Math.acos('"></td>
+			<td><input type="button" class="w3-button w3-small w3-border w3-pale-yellow w3-round" value="atan" onclick="sci.display.value='Math.atan('"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-blue w3-round w3-padding-small" value="exp" onclick="calc('Math.exp(')"></td>
+		</tr>
+		<tr>
+            <td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="√" onclick="calc('Math.sqrt(')"></td>
+            <td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="∛" onclick="calc('Math.cbrt(')"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="^" onclick="sci.display.value+='Math.pow('"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-blue w3-round" value="ln" onclick="calc('Math.Log(')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="π" onclick="calc('Math.PI')"></td>
+			<td><input type="button" class="w3-button w3-small w3-border w3-pale-yellow w3-round" title="Random number between 0 to 100" value="rand" onclick="calc('Math.floor(Math.random()*100)')"></td>
+			<td><input type="button" class="w3-button w3-border w3-pale-yellow w3-round" value="," onclick="calc(',')"></td>
+			<td><input type="button" class="w3-button w3-small w3-border w3-pale-blue w3-round" value="abs" onclick="calc('Math.abs(')"></td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        </table>
+        </div></form>
+</div>
+</div>
+</body> 
+<script type="text/javascript" src="js/calculation.js"></script>
+</html> 
